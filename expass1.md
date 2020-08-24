@@ -10,4 +10,4 @@
     - I did not encounter any problems
 
 - Any pending issues with this assignment which you did not manage to solve
-    - I do not have any pending problems 
+    - No remaining problems
