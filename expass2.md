@@ -11,6 +11,7 @@
 
 - An explanation of how you inspected the database tables and what tables were created. For the latter you may provide screenshots.
     - I used intellij's Database inspection tool. 
+    
 ![Database Tables](expass2-database-screenshot.png)
 
 - Any pending issues with this assignment which you did not manage to solve
