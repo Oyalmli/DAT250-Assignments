@@ -29,12 +29,12 @@ public class Person {
         this.address_list = address_list;
     }
 
-    public String list_addresses(){
+    public String list_addresses() {
         return address_list.toString();
     }
 
-    public void addcard(CreditCard creditCard){
-        if(creditcards.contains(creditCard)) return;
+    public void addcard(CreditCard creditCard) {
+        if (creditcards.contains(creditCard)) return;
 
         creditcards.add(creditCard);
     }

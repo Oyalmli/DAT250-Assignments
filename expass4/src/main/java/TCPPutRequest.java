@@ -7,66 +7,67 @@ import java.util.Scanner;
 
 public class TCPPutRequest {
 
-	private static int port = 8080;
-	private static String host = "localhost";
-	private static String uri = "/todos";
+    private static int port = 8080;
+    private static String host = "localhost";
+    private static String uri = "/todos";
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		try (Socket s = new Socket(host, port)) {
+        try (Socket s = new Socket(host, port)) {
 
-			// construct the HTTP request
-			String jsonbody = "{\"summary\":\"summary8\",\"description\":\"description8\"}";
+            // construct the HTTP request
+            String jsonbody = "{\"updateId\":1," +
+                    "\"updateBody\": {\"summary\":\"UPDATED\",\"description\":\"UPDATED\"}}";
 
             System.out.println(jsonbody);
-			String httpputrequest = 
-					"PUT " + uri + " HTTP/1.1\r\n" + 
-			        "Host: " + host + "\r\n" +
-					"Content-type: application/json\r\n" + 
-			        "Content-length: " + jsonbody.length() + "\r\n" +
-					"Connection: close\r\n" + 
-			        "\r\n" + 
-					jsonbody + 
-					"\r\n";
+            String httpputrequest =
+                    "PUT " + uri + " HTTP/1.1\r\n" +
+                            "Host: " + host + "\r\n" +
+                            "Content-type: application/json\r\n" +
+                            "Content-length: " + jsonbody.length() + "\r\n" +
+                            "Connection: close\r\n" +
+                            "\r\n" +
+                            jsonbody +
+                            "\r\n";
 
-			// send the response over the TCP connection
-			OutputStream output = s.getOutputStream();
+            // send the response over the TCP connection
+            OutputStream output = s.getOutputStream();
 
-			PrintWriter pw = new PrintWriter(output, false);
-			pw.print(httpputrequest);
-			pw.flush();
+            PrintWriter pw = new PrintWriter(output, false);
+            pw.print(httpputrequest);
+            pw.flush();
 
-			// read the HTTP response
-			InputStream in = s.getInputStream();
+            // read the HTTP response
+            InputStream in = s.getInputStream();
 
-			Scanner scan = new Scanner(in);
-			StringBuilder jsonresponse = new StringBuilder();
-			boolean header = true;
+            Scanner scan = new Scanner(in);
+            StringBuilder jsonresponse = new StringBuilder();
+            boolean header = true;
 
-			while (scan.hasNext()) {
+            while (scan.hasNext()) {
 
-				String nextline = scan.nextLine();
+                String nextline = scan.nextLine();
 
-				if (header) {
-					System.out.println(nextline);
-				} else {
-					jsonresponse.append(nextline);
-				}
+                if (header) {
+                    System.out.println(nextline);
+                } else {
+                    jsonresponse.append(nextline);
+                }
 
-				if (nextline.isEmpty()) {
-					header = false;
-				}
+                if (nextline.isEmpty()) {
+                    header = false;
+                }
 
-			}
+            }
 
-			System.out.println("BODY:");
-			System.out.println(jsonresponse.toString());
+            System.out.println("BODY:");
+            System.out.println(jsonresponse.toString());
 
-			scan.close();
+            scan.close();
 
-		} catch (IOException e) {
-			System.err.println(e);
-		}
+        } catch (IOException e) {
+            System.err.println(e);
+        }
 
-	}
+    }
 }

@@ -13,7 +13,6 @@ public class Bank {
     private List<CreditCard> creditcards = new ArrayList<>();
 
 
-
     public String getName() {
         return name;
     }
@@ -22,8 +21,8 @@ public class Bank {
         this.name = name;
     }
 
-    public void addcard(CreditCard creditCard){
-        if(creditcards.contains(creditCard)) return;
+    public void addcard(CreditCard creditCard) {
+        if (creditcards.contains(creditCard)) return;
 
         creditcards.add(creditCard);
     }

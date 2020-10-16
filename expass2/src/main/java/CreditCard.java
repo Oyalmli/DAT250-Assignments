@@ -19,6 +19,7 @@ public class CreditCard {
     public int getBalance() {
         return balance;
     }
+
     public void setBalance(int balance) {
         this.balance = balance;
     }
@@ -26,6 +27,7 @@ public class CreditCard {
     public int getNumber() {
         return number;
     }
+
     public void setNumber(int number) {
         this.number = number;
     }
@@ -33,6 +35,7 @@ public class CreditCard {
     public int getLimit() {
         return limit;
     }
+
     public void setLimit(int limit) {
         this.limit = limit;
     }
@@ -40,6 +43,7 @@ public class CreditCard {
     public Pincode getPincode() {
         return pincode;
     }
+
     public void setPincode(Pincode pincode) {
         this.pincode = pincode;
     }
@@ -47,6 +51,7 @@ public class CreditCard {
     public Bank getBank() {
         return bank;
     }
+
     public void setBank(Bank bank) {
         this.bank = bank;
     }

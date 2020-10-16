@@ -15,11 +15,10 @@ public class Address {
     @ManyToMany(mappedBy = "address_list")
     private List<Person> people_living_at_address = new ArrayList<>();
 
-    public void setAddress(String street, int number){
+    public void setAddress(String street, int number) {
         this.street = street;
         this.number = number;
     }
-
 
 
     @Override
